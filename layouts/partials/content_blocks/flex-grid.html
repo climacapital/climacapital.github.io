@@ -1,0 +1,21 @@
+<article data-block-type="{{ .itemType }}" class="container">
+  <div class="site-width-md">
+      <div class="
+          w-full grid grid-flow-row lg:grid-cols-3"
+      >
+        {{- range .content -}}
+        {{- $image := .image -}}
+        {{- if (reflect.IsMap $image) -}}
+          {{- $image = .image.url -}}
+        {{- end -}}
+        <div class="mb-4 md:px-4 pb-6">
+          <img class="w-3/4 mx-auto md:w-full" src="{{ $image }}" />
+          <div class="pt-2 {{- if .centerText -}} text-center{{- end -}}">
+            <h3 class="font-display text-lg leading-5 py-2">{{ .heading }}</h3>
+            <p>{{ .content }}</p>
+          </div>
+        </div>
+        {{- end -}}
+      </div>
+  </div>
+</article>

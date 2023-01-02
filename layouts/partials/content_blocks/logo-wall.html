@@ -1,0 +1,14 @@
+<article data-block-type="{{ .itemType }}" class="container">
+  <h1 class="section-title">{{ .title }}</h1>
+  <div class="flex items-center flex-row flex-wrap justify-center">
+  {{ range .logos }}
+    {{- $logo := .logo -}}
+    {{- if (reflect.IsMap $logo) -}}
+      {{- $logo = .logo -}}
+    {{- end -}}
+    <a target="_blank" class="mx-8 mb-8" title="{{ .partnerName }}" href="{{ .externalUrl }}">
+      <img class="{{ if ge $logo.width $logo.height }}w-40 h-auto{{- else -}}h-16 w-auto{{ end }}" src="{{ $logo.url }}" alt="{{ .partnerName }}"/>
+    </a>
+  {{ end }}
+  </div>
+</article>

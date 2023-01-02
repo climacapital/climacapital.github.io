@@ -1,0 +1,24 @@
+<!-- Reroute to get localized Data files -->
+{{ $data := index .Site.Data .Site.Language.Lang }}
+
+<div class="mx-auto text-center">
+  <a href="#top" title='{{- i18n "back_to_top" -}}' class="back-to-top">
+    <svg width="16" height="54" viewBox="0 0 16 54" fill="none" xmlns="http://www.w3.org/2000/svg" class="mx-auto transition-all">
+      <path d="M8.70711 0.292893C8.31658 -0.0976311 7.68342 -0.0976311 7.29289 0.292893L0.928932 6.65685C0.538408 7.04738 0.538408 7.68054 0.928932 8.07107C1.31946 8.46159 1.95262 8.46159 2.34315 8.07107L8 2.41421L13.6569 8.07107C14.0474 8.46159 14.6805 8.46159 15.0711 8.07107C15.4616 7.68054 15.4616 7.04738 15.0711 6.65685L8.70711 0.292893ZM7 1L7 54L9 54L9 1L7 1Z" fill="#27251F"/>
+    </svg>
+    <p class="pt-2">{{- i18n "back_to_top" -}}</p>
+  </a>
+<div>
+
+<footer class="container mx-auto mt-24 md:flex py-4 border-t border-neutral-100">
+  <p class="text-xs flex-1 text-left">&copy; {{ dateFormat "2006" now }} {{ .Site.Params.Copyright }} • {{ .Site.Params.Title }}</p>
+  <ul class="md:flex md:text-center text-left justify-end">
+    {{ range $data.global.footerMenu }}
+    <li class="py-1 md:py-0 md:pl-4 text-neutral-300 underline">
+      <a class="hover:text-blue transition-all text-xs " href="{{ .slug | absLangURL }}">{{ .title }}</a>
+    </li>
+    {{ end }}
+  </ul>
+</footer>
+
+{{- partial "utilities/cookie-banner.html" -}}

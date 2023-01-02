@@ -1,0 +1,9 @@
+<article data-block-type="{{ .itemType }}" class="container">
+  <div class="grid lg:grid-cols-8">
+    <div class="order-1 lg:order-2 lg:col-span-4 xl:col-span-3 content-area">
+      <h1>{{ .title }}</h1>
+      {{ .content | markdownify }}
+    </div>
+    <img class="order-2 lg:order-1 lg:col-span-4 xl:col-span-5 lg:pr-4" src="{{ .image.url }}" />
+  </div>
+</article>

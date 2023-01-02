@@ -1,0 +1,17 @@
+[build]
+publish = "public"
+command = "rimraf ./content ./data && npx dato dump && hugo --gc --minify"
+
+[context.production.environment]
+HUGO_VERSION = "0.81.0"
+HUGO_ENV = "production"
+
+[context.staging.environment]
+HUGO_VERSION = "0.81.0"
+HUGO_ENV = "staging"
+
+[context.deploy-preview]
+command = "rimraf ./content ./data && npx dato dump && hugo --gc --minify --verbose --baseURL $DEPLOY_PRIME_URL"
+
+[context.deploy-preview.environment]
+HUGO_VERSION = "0.81.0"

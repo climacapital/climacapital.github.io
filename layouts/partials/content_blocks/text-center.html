@@ -1,0 +1,6 @@
+<div data-block-type="{{ .itemType }}" class="container pb-8 pt-4 text-center mx-auto">
+    {{- if .icon -}}<img class="section-icon" src="{{ .icon.url }}" />{{- end -}}
+    {{- if .title -}}<h1 class="section-heading{{- if .icon -}}{{ else }} decorated{{- end -}}">{{- .title -}}</h1>{{- end -}}
+    {{- if .abstract -}}<h3 class="section-abstract">{{- .abstract -}}</h3>{{- end -}}
+    {{- if .detail -}}<div class="section-detail">{{- .detail | markdownify -}}</div>{{- end -}}
+</div>

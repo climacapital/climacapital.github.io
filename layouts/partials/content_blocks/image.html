@@ -1,0 +1,6 @@
+<article data-block-type="{{ .itemType }}_{{.video.provider}}" class="container">
+  <div class="max-w-5xl mx-auto">
+    <img src="{{ .image.url }}" class="rounded" />
+    {{- if .caption -}}<p class="image-caption">{{- .caption -}}</p>{{- end -}}
+  </div>
+</article>

@@ -1,0 +1,48 @@
+<li
+  x-data="{ showModal: false }"
+  x-on:keydown.window.escape="showModal = false"
+>
+  <button x-on:click="showModal = !showModal" class="button">
+    {{ i18n "contact" }}
+  </button>
+
+  <div
+    x-cloak
+    x-show="showModal"
+    x-transition.opacity
+    class="fixed inset-0"
+  ></div>
+
+  <div
+    x-cloak
+    x-show="showModal"
+    x-transition
+    class="fixed inset-0 z-50 flex items-center justify-center"
+  >
+  <div
+    x-on:click.away="showModal = false"
+    class="w-screen max-w-xl mx-auto bg-blue-100 bg-opacity-90 rounded-lg min-h-96 p-6"
+  >
+    <div>
+      <h1 class="font-display text-3xl mb-4">{{ i18n "contact" }}</h1>
+      <form name="contact" method="POST" data-netlify="true">
+        <input type="hidden" name="subject"
+          value="{{ i18n "form_subject" }}" />
+          <label class="uppercase text-xs">
+            <input class="mt-4 w-full rounded border-0 border-b-3 border-b-blue font-body text-2xs"  type="text" name="name" />
+            <span class="mt-2">{{ i18n "name" }}</span>
+          </label>
+          <label class="uppercase text-xs">
+            <input class="mt-4 w-full rounded border-0 border-b-3 border-b-blue font-body text-2xs" type="email" name="email" />
+            <span class="mt-2">{{ i18n "email" }}</span>
+          </label>
+          <label class="uppercase text-xs">
+            <textarea class="mt-4 w-full rounded border-0 border-b-3 border-b-blue font-body text-2xs" name="message"></textarea>
+            <span class="mt-2">{{ i18n "message" }}</span>
+          </label>
+          <button class="w-full bg-blue-300 hover:bg-blue transition-all text-white rounded py-1 mt-4" type="submit">{{ i18n "submit" }}</button>
+      </form>
+      </div>
+    </div>
+  </div>
+</li>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="{{ .Lang }}" class="smooth-scroll">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    {{ $styles := resources.Get "css/styles.scss" | toCSS | postCSS (dict "config" "./assets/css/postcss.config.js") }}
+    {{ if .Site.IsServer }}
+      <link rel="stylesheet" href="{{ $styles.RelPermalink }}">
+    {{ else }}
+      {{ $styles := $styles | minify | fingerprint | resources.PostProcess }}
+      <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}">
+    {{ end }}
+
+    <!-- Primary Meta Tags --> <!-- TODO ADD SITE TAGLINE -->
+    <title>{{ if .IsHome }}{{ .Site.Params.Title }}{{ else }}{{ if .Page.Title }}{{ .Page.Title }} | {{ .Site.Params.Title }}{{ end }}{{ end }}</title>
+
+      {{ .Site.Data.settings.faviconMetaTags | safeHTML }}
+      {{ if isset .Params "seometatags" }}
+        {{ .Params.seometatags | safeHTML }}
+      {{ else }}
+        {{ .Site.Data.settings.seoMetaTags | safeHTML }}
+      {{ end }}
+
+    {{ if eq .Site.Params.env "production" }}
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ .googleAnalytics }}"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', {{ .googleAnalytics }});
+    </script>
+    {{ end }}
+  </head>
+  <body>
+    {{- partial "site_header.html" . -}}

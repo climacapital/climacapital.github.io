@@ -1,0 +1,22 @@
+- id: contact
+  translation: 'Contact'
+- id: name
+  translation: 'Name'
+- id: email
+  translation: 'E-mail address'
+- id: message
+  translation: 'Message'
+- id: submit
+  translation: 'Submit'
+- id: form_subject
+  translation: 'Message from gulfmexico.org form'
+- id: privacy_url
+  translation: '/privacy-policy/'
+- id: learn_more
+  translation: 'Learn more'
+- id: back_to_top
+  translation: 'Back to top'
+- id: cookie_policy
+  translation: 'We use cookies to improve your browsing experience.'
+- id: cookie_link
+  translation: 'Find out about our cookie policy here.'

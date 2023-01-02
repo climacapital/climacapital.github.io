@@ -1,0 +1,31 @@
+
+{{- range .Params.content -}}
+<section id="{{ .menuTitle | urlize }}" class="{{ if eq .background true }}bg-white{{ else }}bg-blue-100{{ end }} py-12 border-t border-light-border">
+  {{- range .content -}}
+    {{- if eq .itemType "hero" -}}
+      {{- partial "content_blocks/hero.html" . -}}
+    {{- end -}}
+    {{- if eq .itemType "text_center" -}}
+      {{- partial "content_blocks/text-center.html" . -}}
+    {{- end -}}
+    {{- if eq .itemType "section_head" -}}
+      {{- partial "content_blocks/section-head.html" . -}}
+    {{- end -}}
+    {{- if eq .itemType "flex_grid" -}}
+      {{- partial "content_blocks/flex-grid.html" . -}}
+    {{- end -}}
+    {{- if eq .itemType "image" -}}
+      {{- partial "content_blocks/image.html" . -}}
+    {{- end -}}
+    {{- if eq .itemType "text_image" -}}
+      {{- partial "content_blocks/text-image.html" . -}}
+    {{- end -}}
+    {{- if eq .itemType "logo_wall" -}}
+      {{- partial "content_blocks/logo-wall.html" . -}}
+    {{- end -}}
+    {{- if eq .itemType "card_carousel" -}}
+      {{- partial "content_blocks/card-carousel.html" . -}}
+    {{- end -}}
+  {{- end -}}
+  </section>
+{{- end -}}

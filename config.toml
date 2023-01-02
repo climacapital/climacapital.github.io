@@ -1,0 +1,51 @@
+baseURL = "/"
+disableHugoGeneratorInject = true
+DefaultContentLanguage = "en"
+
+#Set GDPR compliance settings below
+[privacy]
+  [privacy.disqus]
+    disable = false
+  [privacy.googleAnalytics]
+    anonymizeIP = false
+    disable = false
+    respectDoNotTrack = false
+    useSessionStorage = false
+  [privacy.instagram]
+    disable = false
+    simple = false
+  [privacy.twitter]
+    disable = false
+    enableDNT = false
+    simple = false
+  [privacy.vimeo]
+    disable = false
+    enableDNT = false
+    simple = false
+  [privacy.youtube]
+    disable = false
+    privacyEnhanced = false
+
+#Enable mulitlingual using directories
+[languages]
+  [languages.en]
+    contentDir = 'content/en'
+    dataDir = 'data/en'
+    languageName = 'English'
+    languageCode = 'en'
+    weight = 10
+  [languages.es]
+    contentDir = 'content/es'
+    dataDir = 'data/es'
+    languageName = 'Español'
+    languageCode = 'es'
+    weight = 20
+
+
+    # datocms:start
+
+
+    [params]
+    Copyright = "UNOPS"
+    Title = "GOMLME"
+    # datocms:end

@@ -1,0 +1,9 @@
+
+
+<li>
+  {{ range .Translations }}
+    <a href="{{ .Permalink }}" class="text-blue hover:text-neutral hover:underline">
+        {{ .Language.LanguageName }}
+    </a>
+  {{ end }}
+</li>
