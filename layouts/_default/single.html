@@ -1,50 +1,5 @@
 {{ define "main" }}
-<!-- Reroute to get localized Data files -->
-{{ $data := index .Site.Data .Site.Language.Lang }}
 
-<!-- Desktop -->
-<header class="fixed top-0 inset-x-0 bg-white shadow-md z-60"
-x-data="{ navOpen: false }"
-:class="{ '': navOpen }">
-  <nav
-    class="relative container mx-auto py-2 flex items-center justify-between z-60"
-  >
-    <!-- Logo section -->
-    <a href="{{ .Site.BaseURL | absLangURL }}" title="{{ .Site.Title }}" class="flex-shrink-0 w-32">
-      <img src="{{ $data.global.logo }}" />
-    </a>
-    <!-- Secondary Nav links -->
-    <ul class="flex items-center gap-x-4">
-      {{- partial "utilities/contact-form.html" . -}}
-      {{- partial "utilities/language-select.html" . -}}
-      <li>
-        <button
-          @click="navOpen = !navOpen"
-        >
-          <svg x-show="!navOpen" width="24" height="13" viewBox="0 0 24 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <line x1="0.5" y1="0.5" x2="23.5" y2="0.5" stroke="#1A2D3C" stroke-linecap="round"/>
-            <line x1="0.5" y1="6.5" x2="23.5" y2="6.5" stroke="#1A2D3C" stroke-linecap="round"/>
-            <line x1="0.5" y1="12.5" x2="23.5" y2="12.5" stroke="#1A2D3C" stroke-linecap="round"/>
-          </svg>
-          <svg x-show="navOpen" width="24" height="24" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <line x1="1.48529" y1="17.2635" x2="17.7487" y2="1" stroke="#1A2D3C" stroke-linecap="round"/>
-            <line x1="1.70711" y1="1.51472" x2="17.9706" y2="17.7782" stroke="#1A2D3C" stroke-linecap="round"/>
-          </svg>
-        </button>
-      </li>
-    </ul>
-  </nav>
-  <nav class="mobile bg-blue-100"
-    x-show="navOpen"
-    x-cloak
-    class="fixed top-0 bottom-0 left-0 right-0 px-4 pt-8 h-screen bg-white z-10">
-    <ul class="container mx-auto">
-    {{- range .Params.content -}}
-      <li><a href="#{{ .menuTitle | urlize }}" @click="navOpen = !navOpen">{{ .menuTitle }}</a></li>
-    {{ end }}
-    </ul>
-  </nav>
-</header>
 {{- partial "page_header.html" . -}}
 <div class="max-width-xl">
 {{- partial "content_blocks.html" . -}}

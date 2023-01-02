@@ -58,6 +58,26 @@ module.exports = (dato, root, i18n) => {
     });
   });
 
+  // Get each team member
+  //=================================================//
+  i18n.availableLocales.forEach((locale) => {
+    i18n.withLocale(locale, () => {
+      root.directory(`content/${locale}/team`, (dir) => {
+        dato.teams.forEach((team) => {
+          dir.createPost(`${team.slug}.md`, "yaml", {
+            frontmatter: {
+              translationKey: team.id,
+              title: team.title,
+              lastName: team.lastName,
+              firstName: team.firstName,
+              headshot: team.headshot.url({auto: 'compress'}),
+            },
+          });
+        });
+      });
+    });
+  });
+
   // Get global data
   //=================================================//
   const globalData = dato.global;
@@ -66,14 +86,7 @@ module.exports = (dato, root, i18n) => {
       root.createDataFile(`data/${locale}/global.json`, "json", {
         "title": globalData.title,
         "logo": globalData.logo.url(),
-        "logoNegative": globalData.logoNegative.url(),
         "copyright": globalData.copyright,
-        "footerMenu": globalData.footerMenu.map(menu => {
-          return {
-            title: menu.title,
-            slug: menu.slug,
-          }
-        }),
       });
     });
   });

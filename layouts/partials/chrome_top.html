@@ -13,7 +13,7 @@
       <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}">
     {{ end }}
 
-    <!-- Primary Meta Tags --> <!-- TODO ADD SITE TAGLINE -->
+    <!-- Primary Meta Tags -->
     <title>{{ if .IsHome }}{{ .Site.Params.Title }}{{ else }}{{ if .Page.Title }}{{ .Page.Title }} | {{ .Site.Params.Title }}{{ end }}{{ end }}</title>
 
       {{ .Site.Data.settings.faviconMetaTags | safeHTML }}
@@ -24,7 +24,6 @@
       {{ end }}
 
     {{ if eq .Site.Params.env "production" }}
-
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id={{ .googleAnalytics }}"></script>
     <script>

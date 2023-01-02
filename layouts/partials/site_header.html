@@ -1,0 +1,18 @@
+{{ $data := index .Site.Data .Site.Language.Lang }}
+<header class="nav relative z-60"
+x-data="{ navOpen: false }"
+:class="{ '': navOpen }">
+  <nav
+    class="container mx-auto flex items-center justify-between bg-th-bg"
+  >
+    <!-- Logo section -->
+    <a href="{{ .Site.BaseURL | absLangURL }}" title="{{ .Site.Title }}" class="flex-shrink-0 h-10">
+      <img src="{{ $data.global.logo }}" class="h-full"/>
+    </a>
+    <ul>
+      <li class="leading-menu">
+        <a href="">Work</a>
+      </li>
+    </ul>
+
+</header>

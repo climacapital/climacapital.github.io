@@ -9,15 +9,8 @@
 // Import google fonts
 @import url('https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Open+Sans:ital@0;1&display=swap');
 
-// Import local fonts
-@font-face {
-  font-family: 'VFSans-Bold';
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-  src: url('/fonts/VFSans-Bold.woff2') format('woff2'),
-      url('/fonts/VFSans-Bold.woff') format('woff');
-}
+
+
 
 // Setup font styles
 
@@ -31,245 +24,75 @@
   font-family: 'Libre Caslon Display', serif;
 }
 
-@layer components {
+// Color themes
+//===============================================//
 
 
-
-  // Font styles
-  .h1,
-  .section-title {
-    @apply text-3xl;
-    @apply text-center;
-    @apply pb-8;
-    font-family: 'VFSans-Bold', sans-serif;
+@layer base {
+  :root {
+    --color-bg:         theme('colors.white');
+    --color-border:     theme('colors.neutral.100');
+    --color-well:       theme('colors.black');
+    --color-primary:    theme('colors.black');
+    --color-secondary:  theme('colors.blue.300');
+    --color-accent:     theme('colors.black');
+    --color-highlight:  theme('colors.black');
   }
 
-  .h2,
-  .section-heading {
-    @apply text-light-secondary;
-    @apply text-sm;
-    @apply uppercase;
-    @apply pb-4;
-    font-family: 'VFSans-Bold', sans-serif;
-
-
-    &.decorated {
-      position: relative;
-      margin-top: 6.88rem;
-
-      &::before {
-        content: "";
-        position: absolute;
-        top: -6.88rem;
-        left: 50%;
-        margin-left: -0.02rem;
-        height: 6rem;
-        width: 0.04rem;
-        @apply bg-blue;
-        z-index: 20;
-      }
-    }
+  .th-info {
+    --color-bg:         theme('colors.neutral.100');
+    --color-primary:    theme('colors.neutral.DEFAULT');
+    --color-accent:     theme('colors.blue.DEFAULT');
   }
-
-  .h3,
-  .card-title {
-    @apply text-base;
-    @apply pb-2;
-    font-family: 'VFSans-Bold', sans-serif;
-  }
-
-  .hero-message {
-    @apply max-w-4xl mx-auto;
-    @apply text-3xl;
-    @apply lg:text-5xl;
-    @apply p-4;
-    @apply text-white;
-    text-align: center;
-    font-family: 'Libre Caslon Display', serif;
-    letter-spacing: -0.02rem;
-  }
-
-  .section-icon {
-    @apply w-16;
-    @apply mb-6;
-    @apply mx-auto;
-  }
-
-  .section-abstract {
-    @apply max-w-4xl mx-auto;
-    @apply text-2xl;
-    @apply lg:text-3xl;
-    @apply pb-4;
-    font-family: 'Libre Caslon Display', serif;
-    letter-spacing: -0.02rem;
-  }
-
-  .section-detail {
-    @apply text-sm;
-    @apply lg:text-base;
-    @apply text-neutral;
-    letter-spacing: -0.02rem;
-  }
-
-  .image-caption {
-    @apply py-2;
-    @apply mr-1;
-    @apply text-neutral-300;
-    font-style: italic;
-    text-align: right;
-  }
-
-
-  p {
-    @apply text-2xs;
-  }
-
-  .more-link {
-    @apply text-blue;
-    @apply text-xs;
-    @apply pt-2;
-    position: relative;
-    font-family: 'VFSans-Bold', sans-serif;
-  }
-
-  .content-area {
-    h1 {
-      @apply text-light-secondary;
-      @apply text-sm;
-      @apply uppercase;
-      @apply pb-4;
-      font-family: 'VFSans-Bold', sans-serif;
-    }
-    p {
-      @apply text-xs;
-      @apply pb-2;
-    }
-  }
-
-  .back-to-top {
-    @apply text-sm;
-    @apply uppercase;
-    @apply pb-4;
-    font-family: 'VFSans-Bold', sans-serif;
-    &:hover {
-      @apply opacity-70;
-      svg {
-        @apply -mt-4;
-        @apply mb-4;
-      }
-    }
-  }
-
-
-  // Layout
-  .container {
-    @apply px-2;
-    @apply lg:px-4;
-  }
-
-  article.container {
-    @apply mx-auto;
-  }
-
-  .card-block {
-    @apply rounded;
-    @apply border-light-border;
-    @apply mx-3;
-    @apply mb-8;
-    @apply w-1/5;
-    min-width: 280px;
-    position: relative;
-    overflow: hidden;
-
-    &:hover {
-      .hero {
-        scale: 1.2;
-      }
-      .more-link {
-        text-decoration: underline;
-      }
-    }
-
-
-    .hero {
-      @apply transition-all;
-    }
-    .icon {
-      @apply ml-4;
-      @apply -mt-16;
-      position: absolute;
-      width: 100px;
-    }
-  }
-
-  nav.mobile {
-    @apply py-8;
-    @apply mx-auto;
-
-    li {
-      @apply my-2;
-      @apply text-lg;
-      font-family: 'VFSans-Bold', sans-serif;
-      a {
-        &:hover {
-          @apply text-blue;
-          @apply underline;
-        }
-      }
-    }
-  }
-
-
-.cookie-banner {
-  @apply bg-neutral-100;
-  @apply flex;
-  @apply px-2;
-  @apply py-2;
 }
 
-  // Set defaults
-
-  body {
-    @apply text-light-primary;
-    font-family: 'Open Sans';
-    font-weight: normal;
-    font-style: normal;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-weight: normal;
-    font-style: normal;
-    letter-spacing: 0em;
-    line-height: 100%;
-  }
-
-
-
-  .video-container {
-    position: relative;
-    width: 100%;
-    padding-bottom: 56.25%;
-  }
-  .video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: 0;
-  }
-
+@layer components {
 
   /* Hide meta data when content is copied from Figma */
   span[data-metadata],
   span[data-buffer] {
     @apply hidden;
   }
+
+  header.nav {
+    @apply fixed;
+    @apply top-0;
+    @apply inset-x-0;
+    @apply bg-transparent;
+    nav {
+      .main {
+
+      }
+    }
+  }
+
+  section {
+    @apply py-12;
+
+    article {
+      @apply max-w-screen-xl;
+      @apply mx-auto;
+
+      .section-title {
+        @apply text-xl;
+        @apply text-center;
+        @apply uppercase;
+        @apply pb-4;
+        @apply tracking-wide;
+      }
+      p {
+        @apply pb-2;
+      }
+    }
+  }
+
+  .container {
+    @apply mx-auto;
+    @apply px-2;
+  }
+
+
+
 }
 
 @media only screen and (max-width: 768px) {
@@ -278,7 +101,6 @@
 @media only screen and (min-width: 768px) {
 
 }
-
 
 // TW adjustments
 @layer utilities {

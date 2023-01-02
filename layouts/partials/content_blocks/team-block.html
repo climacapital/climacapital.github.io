@@ -1,0 +1,18 @@
+<article data-block-type="{{ .itemType }}" class="container">
+  <h1 class="section-title">{{ .title }}</h1>
+  <div class="grid grid-flow-row space-x-4 grid-cols-3">
+  {{ range .teamGrid }}
+    {{ $headshot := .headshot }}
+    {{ if (reflect.IsMap $headshot) }}
+      {{ $headshot = .headshot }}
+    {{ end }}
+    <a class="group" target="_blank" href="team/{{ .slug }}" title="{{ .title }} - {{ .role }}" >
+      <figure class="w-full h-full aspect-square bg-blue rounded mb-2">
+        <img class="group-hover:scale-125 object-cover min-h-full" src="{{ $headshot.url }}" alt="{{ .firstName }} {{ .lastName }} - {{ .title }}"/>
+      </figure>
+      <h1 class="group-hover:underline text-xl text-th-primary">{{ .title }}</h1>
+      <h3 class="text-lg text-th-secondary">{{ .role }}</h3>
+    </a>
+  {{ end }}
+  </div>
+</article>

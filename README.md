@@ -1,4 +1,4 @@
-# Høst Company Website
+# Clima Company Website
 
 ## Stack
 - Hugo

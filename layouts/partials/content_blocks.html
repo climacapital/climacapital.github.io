@@ -1,15 +1,20 @@
 
 {{- range .Params.content -}}
-<section id="{{ .menuTitle | urlize }}" class="{{ if eq .background true }}bg-white{{ else }}bg-blue-100{{ end }} py-12 border-t border-light-border">
+<section id="{{ .menuTitle | urlize }}"
+  class="
+  py-12
+  border-t
+  border-th-border
+  ">
   {{- range .content -}}
     {{- if eq .itemType "hero" -}}
       {{- partial "content_blocks/hero.html" . -}}
     {{- end -}}
-    {{- if eq .itemType "text_center" -}}
-      {{- partial "content_blocks/text-center.html" . -}}
+    {{- if eq .itemType "intro_block" -}}
+      {{- partial "content_blocks/intro-block.html" . -}}
     {{- end -}}
-    {{- if eq .itemType "section_head" -}}
-      {{- partial "content_blocks/section-head.html" . -}}
+    {{- if eq .itemType "team_block" -}}
+      {{- partial "content_blocks/team-block.html" . -}}
     {{- end -}}
     {{- if eq .itemType "flex_grid" -}}
       {{- partial "content_blocks/flex-grid.html" . -}}
