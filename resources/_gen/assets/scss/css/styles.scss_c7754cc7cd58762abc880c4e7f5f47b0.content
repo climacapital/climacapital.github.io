@@ -739,15 +739,15 @@ html {
   --color-border:     #bcc4cb;
   --color-well:       #eef0f2;
   --color-primary:    #2b343e;
-  --color-secondary:  #21b281;
+  --color-secondary:  #198661;
   --color-accent:     #21b281;
   --color-highlight:  #27251F;
 }
 
 .th-info {
-  --color-bg:         #eef0f2;
-  --color-primary:    #586b7e;
-  --color-accent:     #21b281;
+  --color-bg:         #f7f8f9;
+  --color-primary:    #4f6071;
+  --color-accent:     #198661;
 }
 
 .container {
@@ -1009,8 +1009,7 @@ section article .section-slug {
   font-size: 1.336rem;
   text-align: center;
   padding-bottom: 1rem;
-  --tw-text-opacity: 1;
-  color: rgba(33, 178, 129, var(--tw-text-opacity));
+  color: var(--color-secondary);
   line-height: 2;
   letter-spacing: 0.025em;
 }

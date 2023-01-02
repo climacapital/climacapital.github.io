@@ -21,16 +21,16 @@
     --color-border:     theme('colors.neutral.300');
     --color-well:       theme('colors.neutral.100');
     --color-primary:    theme('colors.neutral.900');
-    --color-secondary:  theme('colors.eco.DEFAULT');
+    --color-secondary:  theme('colors.eco.700');
     --color-accent:     theme('colors.eco.DEFAULT');
     --color-highlight:  theme('colors.black');
   }
 
   // Create color themes here using "th-"" as a prefix
   .th-info {
-    --color-bg:         theme('colors.neutral.100');
-    --color-primary:    theme('colors.neutral.DEFAULT');
-    --color-accent:     theme('colors.eco.DEFAULT');
+    --color-bg:         theme('colors.neutral.50');
+    --color-primary:    theme('colors.neutral.600');
+    --color-accent:     theme('colors.eco.700');
   }
 }
 
@@ -73,7 +73,7 @@
         @apply text-xl;
         @apply text-center;
         @apply pb-2;
-        @apply text-eco;
+        @apply text-th-secondary;
         @apply leading-loose;
         @apply tracking-wide;
 

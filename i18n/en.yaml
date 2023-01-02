@@ -9,7 +9,7 @@
 - id: submit
   translation: 'Submit'
 - id: form_subject
-  translation: 'Message from gulfmexico.org form'
+  translation: 'Message:'
 - id: privacy_url
   translation: '/privacy-policy/'
 - id: learn_more

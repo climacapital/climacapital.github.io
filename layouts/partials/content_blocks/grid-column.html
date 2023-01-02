@@ -11,7 +11,7 @@
           {{- $icon = .icon -}}
         {{- end -}}
         <div class="p-4 border border-th-border bg-th-well -mb-px -mr-px min-h-fit">
-          <img class="h-8 w-8 mb-2" src="{{ $icon.url }}" />
+          <img class="h-8 w-8 mb-2" src="{{ $icon.url }}" alt="icon" />
           <h3 class="font-display font-bold text-lg">{{ .title }}</h3>
           <p>{{ .abstract }}</p>
         </div>
@@ -28,7 +28,7 @@
           {{- $icon = .icon -}}
         {{- end -}}
         <div class="p-4 -mb-px -mr-px text-center">
-          <img class="h-8 w-8 mb-2 mx-auto" src="{{ $icon.url }}" />
+          <img class="h-8 w-8 mb-2 mx-auto" src="{{ $icon.url }}" alt="icon" />
           <h3 class="font-display font-bold text-lg">{{ .title }}</h3>
           <p>{{ .abstract }}</p>
         </div>
@@ -45,7 +45,7 @@
         {{- $icon = .icon -}}
       {{- end -}}
       <div class="p-4 -mb-px -mr-px text-center">
-        <img class="h-8 w-8 mb-2 mx-auto" src="{{ $icon.url }}" />
+        <img class="h-8 w-8 mb-2 mx-auto" src="{{ $icon.url }}" alt="icon" />
         <h3 class="font-display font-bold text-lg">{{ .title }}</h3>
         <p>{{ .abstract }}</p>
       </div>

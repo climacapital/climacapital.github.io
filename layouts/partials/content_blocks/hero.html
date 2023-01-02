@@ -14,7 +14,7 @@
         <div
           x-show="activeSlide === {{ $counter }}"
           class="text-white lg:flex justify-center items-center h-full bg-eco-900 rounded px-8 py-4">
-          <div class="absolute inset-0 bg-gold z-0 opacity-50" style="background: url({{ .backgroundImage.url }}) center ">
+          <div class="absolute inset-0 bg-gold z-0 opacity-50" style="background: url({{ .backgroundImage.url }}?&w=400&fit=crop&q=70&fm=jpg&auto=format&dpr=2) center; background-size: cover;">
           </div>
           <div class="lg:w-1/2 h-full flex flex-col justify-center relative z-40">
             <h2 class="text-2xl font-bold">{{ .title }}</h2>
@@ -46,7 +46,7 @@
           <button class="w-2 h-2 mt-4 mx-2 mb-0 rounded-full overflow-hidden transition-colors duration-200 ease-out hover:bg-indigo-600 hover:shadow-lg focus:outline-none" :class="{
               'bg-neutral-300': activeSlide === slide,
               'bg-neutral': activeSlide !== slide
-            }" x-on:click="activeSlide = slide"></button>
+            }" x-on:click="activeSlide = slide" name="slide button"></button>
         </template>
         </div>
       </div>

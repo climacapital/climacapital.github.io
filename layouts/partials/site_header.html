@@ -6,8 +6,8 @@ x-data="{ navOpen: false }"
     class="mx-auto max-w-screen-xl flex items-center justify-between px-4 py-2 "
   >
     <!-- Logo section -->
-    <a href="{{ .Site.BaseURL | absLangURL }}" title="{{ .Site.Title }}" class="h-12">
-      <img src="{{ $data.global.logo }}" class="h-full"/>
+    <a href="{{ .Site.BaseURL | absLangURL }}" title="{{ $data.global.title }}" class="h-12">
+      <img src="{{ $data.global.logo }}?&w=300&fit=crop&q=70&fm=png&auto=format&dpr=2" alt="{{ $data.global.title }}" class="h-full"/>
     </a>
     <div class="flex items-center">
       <a href="mailto:{{ $data.global.mailToAddress }}" class="mx-4" ><button class="py-1 px-2 border-th-secondary border-2 rounded-full font-bold hover:bg-th-secondary hover:text-white text-sm hover:text-xl mx-auto transition-colors">Email us</button></a>

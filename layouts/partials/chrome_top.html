@@ -18,8 +18,9 @@
       <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}">
     {{ end }}
 
+    {{ $data := index .Site.Data .Site.Language.Lang }}
     <!-- Primary Meta Tags -->
-    <title>{{ if .IsHome }}{{ .Site.Params.Title }}{{ else }}{{ if .Page.Title }}{{ .Page.Title }} | {{ .Site.Params.Title }}{{ end }}{{ end }}</title>
+    <title>{{ if .IsHome }}{{ $data.global.title }}{{ else }}{{ if .Page.Title }}{{ .Page.Title }} | {{ $data.global.title }}{{ end }}{{ end }}</title>
 
       {{ .Site.Data.settings.faviconMetaTags | safeHTML }}
       {{ if isset .Params "seometatags" }}
