@@ -1,11 +1,58 @@
-<article data-block-type="{{ .itemType }}" class="relative items-center justify-center -mt-10 px-2">
+<article data-block-type="{{ .itemType }}" class="relative items-center justify-center -mt-10 px-4 py-10">
 
   {{- if .title -}}
-  <div class="absolute top-0 bottom-0 left-0 right-0 site-container flex items-center justify-center z-20">
-    <h1 class="hero-message">{{ .title | safeHTML }}</h1>
-  </div>
+    <h1 class="hero-title text-3xl md:text-4xl lg:text-5xl pb-4 md:pb-6 lg:pb-8">{{ .title | safeHTML }}</h1>
   {{- end -}}
-  <figure class="max-w-full h-auto bg-th-primary">
-    <img class=" object-cover" src="{{ .backgroundImage.url }}" />
-  </figure>
+  <p class="hero-summary text-lg sm:text-xl md:text-2xl pb-4 md:pb-6 lg:pb-8 text-th-secondary">{{ .abstract | markdownify }}</p>
+  {{- $slide := 0 -}}
+  <div x-data="{ activeSlide: 1, slides: [{{- range .updates -}}{{- $slide = add $slide 1 -}}{{ $slide }},{{- end -}}] }">
+    <div class="relative h-60 ">
+      <!-- Slides -->
+      {{- $counter := 0 -}}
+      {{ range .updates }}
+        {{- $counter = add $counter 1 -}}
+        <div
+          x-show="activeSlide === {{ $counter }}"
+          class="text-white lg:flex justify-center items-center h-full bg-eco-900 rounded px-8 py-4">
+          <div class="absolute inset-0 bg-gold z-0 opacity-50" style="background: url({{ .backgroundImage.url }}) center ">
+          </div>
+          <div class="lg:w-1/2 h-full flex flex-col justify-center relative z-40">
+            <h2 class="text-2xl font-bold">{{ .title }}</h2>
+            <p class="text-xl">{{ .abstract }}</p>
+          </div>
+          <div class="lg:w-1/2 place-self-end text-right relative z-40">
+            <a href="{{ .urlAddress}}" target="_blank"><button class="bg-white text-th-primary rounded-full px-2 py-1  justify-self-end place-self-end">Learn more &#8594;</button></a>
+          </div>
+        </div>
+      {{ end }}
+
+      <!-- Prev/Next arrow buttons -->
+      <div class="absolute inset-0 flex">
+        <div class="flex items-center justify-start w-1/2">
+          <button x-on:click="activeSlide = activeSlide === 1 ? slides.length : activeSlide - 1" class="bg-white text-gray-500 hover:text-indigo-500 font-bold hover:shadow-lg rounded-full w-12 h-12 -ml-4 focus:outline-none">
+            &#8592;
+          </button>
+        </div>
+
+        <div class="flex items-center justify-end w-1/2">
+          <button x-on:click="activeSlide = activeSlide === slides.length ? 1 : activeSlide + 1" class="bg-white text-indigo-500 hover:text-indigo-500 font-bold hover:shadow-lg rounded-full w-12 h-12 -mr-4 focus:outline-none">
+            &#8594;
+          </button>
+        </div>
+
+        <!-- Indicator buttons -->
+        <div class="absolute w-full flex items-center justify-center p-2 -bottom-8">
+        <template x-for="slide in slides" :key="slide">
+          <button class="w-2 h-2 mt-4 mx-2 mb-0 rounded-full overflow-hidden transition-colors duration-200 ease-out hover:bg-indigo-600 hover:shadow-lg focus:outline-none" :class="{
+              'bg-neutral-300': activeSlide === slide,
+              'bg-neutral': activeSlide !== slide
+            }" x-on:click="activeSlide = slide"></button>
+        </template>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
 </article>

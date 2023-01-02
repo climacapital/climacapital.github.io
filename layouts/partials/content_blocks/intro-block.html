@@ -1,4 +1,5 @@
-<article data-block-type="{{ .itemType }}" class="max-w-2xl">
-    <h1 class="section-title">{{ .title }}</h1>
-    <div class="text-center">{{ .content | markdownify }}</div>
+<article data-block-type="{{ .itemType }}" class="max-w-2xl flex flex-col pb-10">
+    <h1 class="section-title order-2">{{ .headline }}</h1>
+    <h2 class="section-slug order-1">{{ .title }}</h2>
+    <div class="text-center text-base order-3">{{ .content | markdownify }}</div>
 </article>

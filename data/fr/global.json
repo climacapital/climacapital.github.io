@@ -1,13 +1,13 @@
 {
-  "title": "Clima Capital Partners",
+  "title": "Clima Capital Partenaires",
   "logo": "https://www.datocms-assets.com/91515/1672676657-clima-logo-2023.png",
   "copyright": "Clima",
-  "callToAction": "We are strategically positioned in key markets, we operate globally, and are headquartered in Washington DC.",
+  "callToAction": "Nous sommes stratégiquement positionnés sur des marchés clés, nous opérons à l'échelle mondiale et notre siège social est à Washington DC.",
   "mailToAddress": null,
   "footerMenu": [
     {
-      "title": "Privacy Policy",
-      "pageUrl": "privacy-policy"
+      "title": "Politique de confidentialité",
+      "pageUrl": "politique-de-confidentialite"
     }
   ],
   "footerLinks": [

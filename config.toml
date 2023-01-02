@@ -34,18 +34,16 @@ DefaultContentLanguage = "en"
     languageName = 'English'
     languageCode = 'en'
     weight = 10
-  [languages.es]
-    contentDir = 'content/es'
-    dataDir = 'data/es'
-    languageName = 'Español'
-    languageCode = 'es'
+  [languages.fr]
+    contentDir = 'content/fr'
+    dataDir = 'data/fr'
+    languageName = 'Français'
+    languageCode = 'fr'
     weight = 20
 
+# datocms:start
+title = "Clima Capital Partners"
 
-    # datocms:start
-
-
-    [params]
-    Copyright = "UNOPS"
-    Title = "GOMLME"
-    # datocms:end
+[params]
+copyright = "Clima"
+# datocms:end

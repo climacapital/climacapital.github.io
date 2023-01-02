@@ -14,9 +14,9 @@
 //=================================================//
 
 module.exports = (dato, root, i18n) => {
-  ['config/config.toml'].forEach((file) => {
+  ['config.toml'].forEach((file) => {
     root.addToDataFile(file, 'toml', {
-      Title: dato.global.title,
+      title: dato.global.title,
       params: {
         copyright: dato.global.copyright,
       },
@@ -34,7 +34,7 @@ module.exports = (dato, root, i18n) => {
       title: page.title,
       abstract: page.abstract,
       slug: page.slug,
-      content: page.content.toMap(),
+      content: page.content.toMap(4),
     }
   }
 
@@ -68,8 +68,9 @@ module.exports = (dato, root, i18n) => {
             frontmatter: {
               translationKey: team.id,
               title: team.title,
-              lastName: team.lastName,
-              firstName: team.firstName,
+              role: team.role,
+              bio: team.bio,
+              linkedin: team.linkedin,
               headshot: team.headshot.url({auto: 'compress'}),
             },
           });
@@ -87,6 +88,20 @@ module.exports = (dato, root, i18n) => {
         "title": globalData.title,
         "logo": globalData.logo.url(),
         "copyright": globalData.copyright,
+        "callToAction": globalData.callToAction,
+        "mailToAddress": globalData.mailToAddress,
+        "footerMenu": globalData.footerMenu.map(menu => {
+          return {
+            title: menu.title,
+            pageUrl: menu.slug,
+          }
+        }),
+        "footerLinks": globalData.footerLinks.map(menu => {
+          return {
+            title: menu.title,
+            urlAddress: menu.urlAddress,
+          }
+        }),
       });
     });
   });

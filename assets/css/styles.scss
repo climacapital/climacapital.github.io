@@ -6,43 +6,31 @@
 // Fonts & Set up
 //===============================================//
 
-// Import google fonts
-@import url('https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Open+Sans:ital@0;1&display=swap');
-
-
-
-
-// Setup font styles
-
-.font-body {
-  font-family: 'Open Sans', sans-serif;
-}
-.font-display {
-  font-family: 'VFSans-Bold', sans-serif;
-}
-.font-special {
-  font-family: 'Libre Caslon Display', serif;
-}
-
-// Color themes
-//===============================================//
-
-
 @layer base {
+
+  html {
+    @apply font-body;
+    @apply text-th-primary;
+  }
+
+
+
+  // Define your root color theme here using Tailwind named colors
   :root {
     --color-bg:         theme('colors.white');
-    --color-border:     theme('colors.neutral.100');
-    --color-well:       theme('colors.black');
-    --color-primary:    theme('colors.black');
-    --color-secondary:  theme('colors.blue.300');
-    --color-accent:     theme('colors.black');
+    --color-border:     theme('colors.neutral.300');
+    --color-well:       theme('colors.neutral.100');
+    --color-primary:    theme('colors.neutral.900');
+    --color-secondary:  theme('colors.eco.DEFAULT');
+    --color-accent:     theme('colors.eco.DEFAULT');
     --color-highlight:  theme('colors.black');
   }
 
+  // Create color themes here using "th-"" as a prefix
   .th-info {
     --color-bg:         theme('colors.neutral.100');
     --color-primary:    theme('colors.neutral.DEFAULT');
-    --color-accent:     theme('colors.blue.DEFAULT');
+    --color-accent:     theme('colors.eco.DEFAULT');
   }
 }
 
@@ -55,15 +43,7 @@
   }
 
   header.nav {
-    @apply fixed;
-    @apply top-0;
-    @apply inset-x-0;
-    @apply bg-transparent;
-    nav {
-      .main {
 
-      }
-    }
   }
 
   section {
@@ -73,13 +53,41 @@
       @apply max-w-screen-xl;
       @apply mx-auto;
 
-      .section-title {
+      .hero-title {
+        @apply font-display;
+        @apply font-bold;
+        @apply leading-extra-tight;
+        @apply tracking-tight;
+      }
+
+      .hero-summary {
+        @apply max-w-screen-md;
+        @apply font-body;
+        @apply leading-snug;
+        @apply tracking-tight;
+      }
+
+      .section-slug {
+        @apply font-display;
+        @apply uppercase;
         @apply text-xl;
         @apply text-center;
-        @apply uppercase;
-        @apply pb-4;
+        @apply pb-2;
+        @apply text-eco;
+        @apply leading-loose;
         @apply tracking-wide;
+
       }
+      .section-title {
+        @apply font-display;
+        @apply font-bold;
+        @apply text-3xl;
+        @apply text-center;
+        @apply pb-4;
+        @apply leading-extra-tight;
+        @apply tracking-tight;
+      }
+
       p {
         @apply pb-2;
       }

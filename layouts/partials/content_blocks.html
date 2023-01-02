@@ -3,8 +3,7 @@
 <section id="{{ .menuTitle | urlize }}"
   class="
   py-12
-  border-t
-  border-th-border
+  border-t border-th-border
   ">
   {{- range .content -}}
     {{- if eq .itemType "hero" -}}
@@ -16,20 +15,11 @@
     {{- if eq .itemType "team_block" -}}
       {{- partial "content_blocks/team-block.html" . -}}
     {{- end -}}
-    {{- if eq .itemType "flex_grid" -}}
-      {{- partial "content_blocks/flex-grid.html" . -}}
+    {{- if eq .itemType "grid_column" -}}
+      {{- partial "content_blocks/grid-column.html" . -}}
     {{- end -}}
-    {{- if eq .itemType "image" -}}
-      {{- partial "content_blocks/image.html" . -}}
-    {{- end -}}
-    {{- if eq .itemType "text_image" -}}
-      {{- partial "content_blocks/text-image.html" . -}}
-    {{- end -}}
-    {{- if eq .itemType "logo_wall" -}}
-      {{- partial "content_blocks/logo-wall.html" . -}}
-    {{- end -}}
-    {{- if eq .itemType "card_carousel" -}}
-      {{- partial "content_blocks/card-carousel.html" . -}}
+    {{- if eq .itemType "text_block" -}}
+      {{- partial "content_blocks/text-block.html" . -}}
     {{- end -}}
   {{- end -}}
   </section>

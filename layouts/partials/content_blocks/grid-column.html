@@ -1,0 +1,58 @@
+<article data-block-type="{{ .itemType }}" class="max-w-screen-xl flex flex-col pb-10">
+
+  {{- range .content -}}
+
+    <!-- Themes -->
+    {{- if eq .itemType "theme_block" -}}
+      <div class="grid grid-flow-row auto-rows-max sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      {{ range .themes }}
+        {{- $icon := .icon -}}
+        {{- if (reflect.IsMap $icon) -}}
+          {{- $icon = .icon -}}
+        {{- end -}}
+        <div class="p-4 border border-th-border bg-th-well -mb-px -mr-px min-h-fit">
+          <img class="h-8 w-8 mb-2" src="{{ $icon.url }}" />
+          <h3 class="font-display font-bold text-lg">{{ .title }}</h3>
+          <p>{{ .abstract }}</p>
+        </div>
+      {{ end }}
+      </div>
+    {{- end -}}
+
+    <!-- Industries -->
+    {{- if eq .itemType "industry_block" -}}
+      <div class="grid grid-flow-row auto-rows-max sm:grid-cols-2 lg:grid-cols-3">
+      {{ range .industries }}
+        {{- $icon := .icon -}}
+        {{- if (reflect.IsMap $icon) -}}
+          {{- $icon = .icon -}}
+        {{- end -}}
+        <div class="p-4 -mb-px -mr-px text-center">
+          <img class="h-8 w-8 mb-2 mx-auto" src="{{ $icon.url }}" />
+          <h3 class="font-display font-bold text-lg">{{ .title }}</h3>
+          <p>{{ .abstract }}</p>
+        </div>
+      {{ end }}
+      </div>
+    {{- end -}}
+
+    <!-- Services -->
+    {{- if eq .itemType "service_block" -}}
+    <div class="grid grid-flow-row auto-rows-max  sm:grid-cols-2 lg:grid-cols-3">
+    {{ range .services }}
+      {{- $icon := .icon -}}
+      {{- if (reflect.IsMap $icon) -}}
+        {{- $icon = .icon -}}
+      {{- end -}}
+      <div class="p-4 -mb-px -mr-px text-center">
+        <img class="h-8 w-8 mb-2 mx-auto" src="{{ $icon.url }}" />
+        <h3 class="font-display font-bold text-lg">{{ .title }}</h3>
+        <p>{{ .abstract }}</p>
+      </div>
+    {{ end }}
+    </div>
+    {{- end -}}
+
+  {{- end -}}
+
+</article>

@@ -1,18 +1,21 @@
 {{ $data := index .Site.Data .Site.Language.Lang }}
-<header class="nav relative z-60"
+<header class="fixed top-0 z-60 w-full shadow bg-th-bg "
 x-data="{ navOpen: false }"
 :class="{ '': navOpen }">
   <nav
-    class="container mx-auto flex items-center justify-between bg-th-bg"
+    class="mx-auto max-w-screen-xl flex items-center justify-between px-4 py-2 "
   >
     <!-- Logo section -->
-    <a href="{{ .Site.BaseURL | absLangURL }}" title="{{ .Site.Title }}" class="flex-shrink-0 h-10">
+    <a href="{{ .Site.BaseURL | absLangURL }}" title="{{ .Site.Title }}" class="h-12">
       <img src="{{ $data.global.logo }}" class="h-full"/>
     </a>
-    <ul>
-      <li class="leading-menu">
-        <a href="">Work</a>
-      </li>
-    </ul>
+    <div class="flex items-center">
+      <a href="mailto:{{ $data.global.mailToAddress }}" class="mx-4" ><button class="py-1 px-2 border-th-secondary border-2 rounded-full font-bold hover:bg-th-secondary hover:text-white text-sm hover:text-xl mx-auto transition-colors">Email us</button></a>
+      {{ range .Translations }}
+        <a href="{{ .Permalink }}" class=" border-l border-th-border text-neutral uppercase text-lg hover:text-eco hover:underline h-8 pl-2 leading-0">
+            {{ .Language.Lang }}
+        </a>
+      {{ end }}
+    </div>
 
 </header>

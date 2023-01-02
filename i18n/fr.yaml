@@ -1,0 +1,22 @@
+- id: contact
+  translation: 'Contacter'
+- id: name
+  translation: 'Nom'
+- id: email
+  translation: 'Courrier électronique'
+- id: message
+  translation: 'Message'
+- id: submit
+  translation: 'Envoyer'
+- id: form_subject
+  translation: 'Message du formulaire'
+- id: privacy_url
+  translation: ''
+- id: learn_more
+  translation: 'Apprendre encore plus'
+- id: back_to_top
+  translation: 'Retour au sommet'
+- id: cookie_policy
+  translation: 'Nous utilisons des cookies pour améliorer votre expérience de navigation.'
+- id: cookie_link
+  translation: 'Découvrez notre politique en matière de cookies ici.'

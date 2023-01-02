@@ -10,7 +10,14 @@ module.exports = {
       keyframes: true,
     },
   },
+
   theme: {
+
+    fontFamily: {
+      'body':     ['"Hanken Grotesk"', ...defaultTheme.fontFamily.sans ],
+      'display':  ['"Hanken Grotesk"', ...defaultTheme.fontFamily.sans ],
+      'special':  ['"Hanken Grotesk"', ...defaultTheme.fontFamily.sans ],
+    },
 
     colors: {
 
@@ -62,10 +69,61 @@ module.exports = {
         700:     '#0070A0',
         900:     '#004F72',
       },
+
+      eco: {
+        DEFAULT:  '#21b281',
+        50:       '#f4fbf9',
+        100:      '#e9f7f2',
+        200:      '#c8ece0',
+        300:      '#a6e0cd',
+        400:      '#64c9a7',
+        500:      '#21b281',
+        600:      '#1ea074',
+        700:      '#198661',
+        800:      '#146b4d',
+        900:      '#10573f'
+      },
+
+      gold: {
+        DEFAULT:  '#FFC129',
+        50:       '#fffcf4',
+        100:      '#fff9ea',
+        200:      '#fff0ca',
+        300:      '#ffe6a9',
+        400:      '#ffd469',
+        500:      '#ffc129',
+        600:      '#e6ae25',
+        700:      '#bf911f',
+        800:      '#997419',
+        900:      '#7d5f14'
+      },
+
+      sky: {
+        DEFAULT:   '#FFC129',
+        50:        '#f5fdff',
+        100:       '#ecfbfe',
+        200:       '#cff6fd',
+        300:       '#b2f0fc',
+        400:       '#79e4fa',
+        500:       '#3fd9f8',
+        600:       '#39c3df',
+        700:       '#2fa3ba',
+        800:       '#268295',
+        900:       '#1f6a7a'
+      },
+
       neutral: {
-        100:     '#ECECEC',
-        300:     '#97999B',
-        DEFAULT: '#27251F',
+        DEFAULT:   '#586b7e',
+        50:        '#f7f8f9',
+        100:       '#eef0f2',
+        200:       '#d5dadf',
+        300:       '#bcc4cb',
+        400:       '#8a97a5',
+        500:       '#586b7e',
+        600:       '#4f6071',
+        700:       '#42505f',
+        800:       '#35404c',
+        900:       '#2b343e'
       },
 
       // Define functional colors here
@@ -80,16 +138,13 @@ module.exports = {
     },
 
     screens: {
-      sm: '576px',
-      md: '768px',
-      lg: '992px',
-      xl: '1140px',
-      '2xl': '1440px',
+      sm:     '576px',
+      md:     '768px',
+      lg:     '992px',
+      xl:     '1140px',
+      '2xl':  '1440px',
     },
 
-    fontFamily: {
-      sans: [...defaultTheme.fontFamily.sans],
-    },
     extend: {
       maxWidth: {
         '1/2': '50%',
@@ -148,9 +203,9 @@ module.exports = {
         '6xl':  '4.338rem',
         '7xl':  '4.88rem',
       },
-
       lineHeight: {
-        "menu": "3.428rem"
+        'extra-tight': '0.935',
+        'menu-main':   '4.88rem',
       },
       zIndex: {
         '60': '60',
@@ -161,9 +216,10 @@ module.exports = {
     extend: {}
   },
   corePlugins: {
+    aspectRatio: false,
   },
   plugins: [
-    require('@tailwindcss/forms'),
     require('@tailwindcss/aspect-ratio'),
+    require('@tailwindcss/forms'),
   ]
 }

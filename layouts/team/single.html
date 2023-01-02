@@ -1,0 +1,25 @@
+{{ define "main" }}
+
+<section id="#top"
+  class="
+  py-12
+  my-12
+  ">
+  <article class="max-w-screen-xl grid grid-cols-3">
+    <div class="col-span-1 grow">
+      <div class=" w-4/5 overflow-hidden mb-3 filter grayscale">
+        <img class="object-cover" src="{{ .Params.headshot }}?&w=200&fit=crop&q=70&fm=jpg&auto=format&h=200&dpr=2" alt="{{ .Title }} - {{ .Params.role }}"/>
+      </div>
+      <a href="{{ .Params.linkedin }}" class="text-th-accent text-lg underline">LinkedIn</a>
+
+    </div>
+    <div class="col-span-2 grow">
+      <h1 class="text-4xl text-th-primary font-bold -mt-4 -mb-4">{{ .Title }}</h1>
+      <h3 class="text-3xl text-th-secondary pb-4">{{ .Params.role }}</h3>
+      <div class="prose">
+        {{ .Params.bio | markdownify }}
+      </div>
+    </div>
+  </article>
+</section>
+{{ end }}
